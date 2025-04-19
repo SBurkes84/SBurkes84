@@ -3,7 +3,7 @@
 Welcome to my personal developer portfolio! This site showcases my background in computer science, web development, and data analysis, along with programming examples, documentation, and writing samples.
 
 ## 🌐 Live Portfolio
-➡️ [https://SBurkes84.github.io/portfolio](https://SBurkes84.github.io/portfolio)
+➡️ [https://SBurkes84.github.io/portfolio1]
 
 ## 📁 What’s Included
 
@@ -46,19 +46,6 @@ Welcome to my personal developer portfolio! This site showcases my background in
 - React
 - VS Code
 
-## 📝 Instructions
 
-To view the portfolio:
-1. Clone the repo or download the ZIP
-2. Open `index.html` in a web browser
-
-> Make sure these files and folders are included:
-> - `resume.pdf`
-> - `IMG_0337.jpg`
-> - `programming-1/`
-> - `programming-2/`
-> - All `.docx` Word documents
-
----
 
 
