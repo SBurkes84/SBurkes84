@@ -24,7 +24,7 @@
             color: #f8f8f8;
             transition: background-color 0.4s ease, color 0.4s ease;
         }
-        .container {
+        .tabcontent {
             width: 80%;
             margin: 30px auto;
             padding: 20px;
@@ -86,17 +86,18 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
-        .fade-in {
-            animation: fadeIn 1s ease-in-out forwards;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .profile-pic {
+            display: block;
+            margin: 20px auto;
+            border-radius: 50%;
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border: 4px solid #04AA6D;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         @media (max-width: 768px) {
-            .container {
+            .tabcontent {
                 width: 95%;
                 padding: 10px;
             }
@@ -110,7 +111,7 @@
 <body>
     <h1>Portfolio of Shequila Sledge</h1>
     <div class="topnav" id="myTopnav">
-       <div class="nav-wrapper">
+        <div class="nav-wrapper">
             <a onclick="openTab('Home')">Profile</a>
             <a onclick="openTab('Resume')">Resume</a>
             <a onclick="openTab('CoverLetter')">Cover Letter</a>
@@ -131,66 +132,25 @@
             </div>
         </div>
     </div>
-    <div id="container">
-      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
-    </div>
 
-        </div>
-    </div>
-
-    <!-- Begin Home Section -->
+    <!-- Tab Content Sections -->
     <div id="Home" class="tabcontent">
         <h2>Profile</h2>
-        <img src="IMG_0337.jpg" alt="Shequila Sledge" style="display: block; margin: 0 auto; border-radius: 50%; width: 150px; height: 150px; box-shadow: 0 4px 10px rgba(0,0,0,0.3); border: 3px solid #04AA6D;">
-        <p>Hi, I’m Shequila, a computer science student with a strong foundation in data analysis and IT systems. I enjoy working with complex datasets and optimizing IT workflows.  With over a decade of experience in customer service and team supervision, I’ve developed a reputation for being organized,
+        <img src="IMG_0337.jpg" alt="Shequila Sledge" class="profile-pic">
+        <p style="text-align:center; font-weight:bold; font-size:18px; margin-bottom: 0;">Shequila Sledge</p>
+        <p style="text-align:center; margin-top: 5px; font-style: italic;">Aspiring Software Developer | Data Analyst | Team Leader</p>
+        <p style="margin-top: 30px;">I’m Shequila, a computer science student with a strong foundation in data analysis and IT systems. I enjoy working with complex datasets and optimizing IT workflows.  With over a decade of experience in customer service and team supervision, I’ve developed a reputation for being organized,
         solution-focused, and adaptable in fast-paced environments. My professional journey has taken me from hospitality and
-        retail to operations management, where I’ve led teams, resolved critical issues, and driven continuous improvement.
-      </p> </p>
-        <div style="margin-top: 20px; text-align: center;">
-            <h2>About Me</h2>
-            <p>I am passionate about coding, solving real-world problems, and continuously learning new technologies. My strengths lie in backend logic, frontend creativity, and developing user-friendly applications. My goal is to contribute to innovative tech teams and make a positive impact through technology.  Currently, I’m pursuing a Bachelor of Science in Computer Science at the University of Arkansas at Little Rock,
+        retail to operations management, where I’ve led teams, resolved critical issues, and driven continuous improvement.I am passionate about coding, solving real-world problems, and continuously learning new technologies. My strengths lie in backend logic, frontend creativity, and developing user-friendly applications. My goal is to contribute to innovative tech teams and make a positive impact through technology.  Currently, I’m pursuing a Bachelor of Science in Computer Science at the University of Arkansas at Little Rock,
         building on my foundation in Computer Information Systems. I’m passionate about leveraging technology to streamline
         processes and improve user experiences. This portfolio showcases the blend of my leadership experience and growing
-        technical expertise. Thanks for stopping by! </p>
-        </div>
+        technical expertise. Thanks for stopping by!</p>
     </div>
-
-    <div id="Database" class="container fade-in">
-    <h1>Programming Examples</h1>
-    <h2>JavaScript Calculator</h2>
-    <p>This is a basic calculator built using HTML, CSS, and JavaScript. It performs standard arithmetic operations and showcases my ability to create interactive web tools using DOM manipulation.</p>
-    <a href="programming-1/index.html" target="_blank">https://github.com/SBurkes84/portfolio1/blob/main/function%20calculate.docx</a>
-
-    <h2>Database Query Tool</h2>
-    <p>This tool mimics a SQL query environment using JavaScript and a mock database. It demonstrates how I simulate SQL operations and manipulate JSON-like data in a web application.</p>
-    <a href="programming-2/index.html" target="_blank">View Query Tool</a>
-
-    <h2>Project Documentation (Word Examples)</h2>
-    <p>These documents support my understanding of project planning, analysis, and system design:</p>
-    <ul>
-        <li><a href="Project_Charter_UV_Tracker.docx" target="_blank">Project Charter: UV Exposure & Weather Tracker</a></li>
-        <li><a href="Project_Analysis_UV_Tracker.docx" target="_blank">System Analysis: UV Exposure & Weather Tracker</a></li>
-        <li><a href="Project_Design_UV_Tracker_with_Code.docx" target="_blank">System Design + Code: UV Exposure & Weather Tracker</a></li>
-    </ul>
-</div>
-
-   <div id="resume" class="container fade-in">
-  <h1>Resume</h1>
-  <p>Download my resume in your preferred format:</p>
-  <p>
-    <a href="Shequila_Sledge_Resume.pdf" target="_blank">📄 PDF Version</a> |
-    <a href="Shequila_Sledge_Resume.docx" target="_blank">📝 Word Version</a>
-  </p>
-</div>
-
-    <!-- Begin Coverletter-->
-    <div id="CoverLetter" class="tabcontent">
-      
-  <p>You can read my cover letter below or download it as a PDF.</p>
+    
+  <div id="Resume" class="tabcontent"><h2>Resume</h2></div>
+    <div id="CoverLetter" class="tabcontent"><h2>Cover Letter</h2><p>You can read my cover letter below or download it as a PDF.</p>
   <p><a href="Shequila_Sledge_Cover_Letter.pdf" target="_blank">📄 Download PDF</a></p>
 </div>
-
-  <div style="text-align: left; max-width: 700px; margin: auto;">
     <p>Shequila Sledge<br>Little Rock, AR<br>sssledge@ualr.edu  | (501) 501-722-5218</p>
   
     <p>Dear Hiring Manager,</p>
@@ -205,20 +165,8 @@
     </p>
 
     <p>Sincerely,<br>Shequila Sledge</p>
-  </div>
-
-    <!-- Begin Education Section -->
-    <div id="Education" class="tabcontent">
-        <h2>Education</h2>
-            <li><strong>Bachelor of Science in Computer Science</strong> – University of Arkansas at Little Rock (Expected 2026)</li>
-            <li><strong>Associate of Science in Computer Science</strong> – Southeast Arkansas College (2023)</li>
-        </ul>
-    </div>
-
-    <!-- Begin Skills Section -->
-    <div id="Skills" class="tabcontent">
-        <h2>Skills</h2>
-          <ul>
+</div>
+    <div id="Skills" class="tabcontent"><h2>Skills</h2><ul>
             <li>Programming: Python, Java, JavaScript</li>
             <li>Web Development: HTML, CSS, React</li>
             <li>Database Management: SQL, MongoDB</li>
@@ -226,35 +174,11 @@
             <li>IT Systems: Windows, Linux, Networking</li>
         </ul>
     </div>
-<!-- Begin Soft Skills -->
-    <div id="SoftSkills" class="tabcontent">
-        <h2>Soft Skills Projects:</h2>
-  <div>
-    <h2>Example 1: Problem Solving Reflection</h2>
-    <p>
-      This reflection discusses a situation where I had to troubleshoot a system issue during my time as a supervisor. 
-      It illustrates my analytical thinking, decision-making under pressure, and the ability to communicate solutions clearly with my team.
-    </p>
-    <p>
-      <a href="soft-skills-1/problem_solving_reflection.pdf" target="_blank">📄 View Example 1 (PDF)</a>
-    </p>
-  </div>
-
-  <div>
-    <h2>Example 2: Project Management in Team Settings</h2>
-    <p>
-      This document outlines a group project I led in my System Analysis and Design course. 
-      It shows how I used organizational skills, delegation, and communication to ensure deadlines were met and goals were achieved.
-    </p>
-    <p>
-      <a href="soft-skills-2/team_project_management.pdf" target="_blank">📄 View Example 2 (PDF)</a>
-    </p>
-  </div>
-</div>
-
-    <div id="Accomplishments" class="container fade-in">
-        <h1>Accomplishments</h1>
-        <ul>
+    <div id="Education" class="tabcontent"><h2>Education</h2><li><strong>Bachelor of Science in Computer Science</strong> – University of Arkansas at Little Rock (Expected 2026)</li>
+            <li><strong>Associate of Science in Computer Science</strong> – Southeast Arkansas College (2023)</li>
+        </ul>
+    </div>
+    <div id="Accomplishments" class="tabcontent"><h2>Accomplishments</h2> <ul>
             <li><strong>Dean's List</strong> – Southeast Arkansas College (2021–2023)</li>
             <li><strong>1st Place – Science Fair</strong> (2021)</li>
             <li><strong>category: "Tech & Development",
@@ -265,44 +189,34 @@
     year: 2025</li>
         </ul>
     </div>
-
-    <div id="Writing" class="container fade-in">
-    <h1>Writing</h1>
-    <p>Below are technical documents written and compiled as part of the UV Exposure & Weather Tracker project.</p>
+    <div id="Contact" class="tabcontent"><h2>Contact</h2><p>Email: sssledge@ualr.edu</p>
+        <p>Phone: 501-722-5218</p>
+        <p>GitHub: <a href="https://github.com/SBurkes84" target="_blank">github.com/SBurkes84</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/shequila-sledge" target="_blank">linkedin.com/in/shequila-sledge</a></p></div>
+    <div id="Writing" class="tabcontent"><h2>Writing Examples</h2></div>
+    <div id="WebProjects" class="tabcontent"><h2>Web Projects</h2></div>
+    <div id="Database" class="tabcontent"><h2>Database Projects</h2></div>
+    <div id="Programming" class="tabcontent"><h2>Programming Projects</h2></div>
+    <div id="SoftSkills" class="tabcontent"><h2>Soft Skills</h2></div>
+    <div id="Capstone" class="tabcontent"><h2>Capstone Project</h2><p>Below are technical documents written and compiled as part of the UV Exposure & Weather Tracker project.</p>
     <ul>
         <li><a href="Project_Charter_UV_Tracker.docx" target="_blank">Project Charter: UV Exposure & Weather Tracker</a></li>
         <li><a href="Project_Analysis_UV_Tracker.docx" target="_blank">System Analysis: UV Exposure & Weather Tracker</a></li>
         <li><a href="Project_Design_UV_Tracker_with_Code.docx" target="_blank">System Design + Code: UV Exposure & Weather Tracker</a></li>
     </ul>
-</div>
-
-    <div id="WebProject" class="container fade-in">
-        <h1>Web Projects</h1>
-        <p>Here are some of the exciting web development projects I’ve worked on. Each project helped me strengthen my skills in front-end design, responsiveness, and interactivity.</p>
-        <ul>
-            <li><strong>Portfolio Website:</strong> Designed and developed my personal portfolio using HTML, CSS, and JavaScript.</li>
-            <li><strong>Responsive Business Landing Page:</strong> Created a fully responsive landing page layout with CSS Grid and Flexbox.</li>
-            <li><strong>React App:</strong> Built a small single-page application using React to track tasks and manage a simple to-do list.</li>
-        </ul>
-    </div>
-
-    <!--Begin Contact-->
-    <div id="Contact" class="tabcontent">
-      <h2>Contact Me</h2>
-        <p>Email: sssledge@ualr.edu</p>
-        <p>Phone: 501-722-5218</p>
-        <p>GitHub: <a href="https://github.com/SBurkes84" target="_blank">github.com/SBurkes84</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/shequila-sledge" target="_blank">linkedin.com/in/shequila-sledge</a></p>
     </div>
 
     <script>
-        function openTab(evt, tabName) {
-            document.querySelectorAll(".container").forEach(tab => tab.style.display = "none");
-            document.getElementById(tabName).style.display = "block";
+        function openTab(tabName) {
+            document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
+            const target = document.getElementById(tabName);
+            if (target) {
+                target.style.display = "block";
+            } else {
+                console.warn("Tab not found:", tabName);
+            }
         }
-
-        // Show Profile tab by default
-        document.getElementById("Home").style.display = "block";
+        openTab('Home'); // Show Home tab on load
     </script>
 </body>
 </html>
