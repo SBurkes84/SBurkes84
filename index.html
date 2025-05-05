@@ -435,10 +435,10 @@
     document.getElementById("showResults").addEventListener("click", showResults);
     document.getElementById("clear").addEventListener("click", clearForm);
     document.addEventListener("DOMContentLoaded", populateCurrencies);
- </script>
-</div>
+   </script>
+  </div>
 
- <div id="SoftSkills" class="tabcontent">
+     <div id="SoftSkills" class="tabcontent">
         <h2>Soft Skills</h2>
         <h3>Example 1: Problem Solving</h3>
         <p><strong>Title:</strong> Resolving Customer Disputes Effectively at Saracen Casino</p>
@@ -451,7 +451,7 @@
         <p><strong>Skills Demonstrated:</strong> Time management, Staff coordination, Communication, Leadership under pressure, Adaptability</p>
       </div>
 
-<div id="Capstone" class="tabcontent">
+    <div id="Capstone" class="tabcontent">
         <h2>Capstone Project</h2>
         <p>Below are technical documents written and compiled for the UV Exposure & Weather Tracker project.</p>
         <ul>
@@ -459,10 +459,9 @@
             <li><a href="Project_Analysis_UV_Tracker.docx" target="_blank">System Analysis</a></li>
             <li><a href="Project_Design_UV_Tracker_with_Code.docx" target="_blank">System Design + Code</a></li>
         </ul>
-    </div>
+       </div>
 
-
-
+<!-- JavaScript for tab switching -->
     <script>
         function openTab(tabName) {
             document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
@@ -473,7 +472,9 @@
                 console.warn("Tab not found:", tabName);
             }
         }
-        openTab('Home'); // Show Home tab on load
+        document.addEventListener("DOMContentLoaded", function () {
+            openTab('Home');
+        });
     </script>
 </body>
 </html>
