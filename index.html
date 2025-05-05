@@ -250,11 +250,26 @@
     <img src="assets/images/webpage-image.jpg" alt="Web Image" style="float: right; border: 2px solid #000; margin: 10px; max-width: 200px;">
 
     <h3 style="color: navy;">Questions</h3>
-    <ul>
-      <li><strong>Explain the difference between the "alt" attribute and the "title" attribute.</strong><br>Your answer goes here...</li>
-      <li><strong>Please provide an example of how to mark up a definition from the dictionary below</strong><br>Your answer goes here...</li>
-      <li><strong>Provide an example of link pointing to your favorite site</strong><br>Your answer goes here...</li>
-    </ul>
+<ul>
+  <li>
+    <strong>Explain the difference between the "alt" attribute and the "title" attribute.</strong><br>
+    The <code>alt</code> attribute provides alternative text for an image if it cannot be displayed and is used by screen readers for accessibility. The <code>title</code> attribute displays a tooltip when the user hovers over an element but is not used by screen readers as a primary description.
+  </li>
+
+  <li>
+    <strong>Please provide an example of how to mark up a definition from the dictionary below</strong><br>
+    Example:  
+    <code>&lt;dfn&gt;Algorithm&lt;/dfn&gt; – a set of rules or processes for solving a problem in a finite number of steps.</code><br>
+    This uses the <code>&lt;dfn&gt;</code> tag to indicate a term being defined.
+  </li>
+
+  <li>
+    <strong>Provide an example of a link pointing to your favorite site</strong><br>
+    Example:  
+    <code>&lt;a href="https://www.w3schools.com" target="_blank"&gt;Visit W3Schools for coding tutorials&lt;/a&gt;</code>
+  </li>
+</ul>
+
   </main>
 
   <footer style="margin-top: 40px; color: white; text-align: center; background: linear-gradient(#444, #000); padding: 10px;">
@@ -285,7 +300,7 @@
 </div>
 
 
-    <<div id="Programming" class="tabcontent">
+    <div id="Programming" class="tabcontent">
   <h2>Programming Projects</h2>
 
   <div class="project">
@@ -302,6 +317,8 @@
 </div>
 
     <div class="currency-converter">
+        <a onclick="openTab('CurrencyApp')">Currency Tracker App</a>
+
         <h1>Currency Value History</h1>
         
         <div class="form-group">
