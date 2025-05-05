@@ -1,3 +1,4 @@
+<style>
 .tab {
     overflow: hidden;
     border-bottom: 1px solid #ccc;
@@ -27,3 +28,4 @@
     padding: 20px;
     border-top: none;
 }
+</style>
