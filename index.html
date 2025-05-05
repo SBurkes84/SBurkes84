@@ -290,7 +290,142 @@
     <h3>JavaScript Calculator</h3>
     <p>This project is a simple web-based calculator that uses HTML, CSS, and JavaScript. It performs basic arithmetic operations (add, subtract, multiply, divide) with input validation and error handling.</p>
     <a href="https://SBurkes84.github.io/calculator/" target="_blank">🔗 View Calculator Project</a>
-  </div>
+
+      meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Value History</title>
+    <link rel="stylesheet" href="assets/style/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="currency-converter">
+        <h1>Currency Value History</h1>
+        
+        <div class="form-group">
+            <label for="baseCurrency">Base Currency:</label>
+            <select id="baseCurrency">
+                <option disabled selected>Select base currency</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="convertToCurrency">Convert to Currency:</label>
+            <select id="convertToCurrency">
+                <option disabled selected>Select target currency</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="fromDate">From Date:</label>
+            <input type="date" id="fromDate" />
+        </div>
+
+        <div class="form-group">
+            <label for="toDate">To Date:</label>
+            <input type="date" id="toDate" />
+        </div>
+
+        <button id="showResults">Show Results</button>
+        <button id="clear">Clear</button>
+
+        <div id="chart-container">
+            <canvas id="currencyChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+    const baseUrl = "https://api.exchangerate.host";
+    let chart = null;
+
+    function populateCurrencies() {
+        fetch(`${baseUrl}/symbols`)
+            .then(response => response.json())
+            .then(data => {
+                const baseSelect = document.getElementById("baseCurrency");
+                const targetSelect = document.getElementById("convertToCurrency");
+
+                for (let code in data.symbols) {
+                    const option1 = new Option(`${code} - ${data.symbols[code].description}`, code);
+                    const option2 = new Option(`${code} - ${data.symbols[code].description}`, code);
+                    baseSelect.appendChild(option1);
+                    targetSelect.appendChild(option2);
+                }
+            });
+    }
+
+    function showResults() {
+        const base = document.getElementById("baseCurrency").value;
+        const target = document.getElementById("convertToCurrency").value;
+        const fromDate = document.getElementById("fromDate").value;
+        const toDate = document.getElementById("toDate").value;
+
+        if (!base || !target || !fromDate || !toDate) {
+            alert("Please complete all fields.");
+            return;
+        }
+
+        const url = `${baseUrl}/timeseries?start_date=${fromDate}&end_date=${toDate}&base=${base}&symbols=${target}`;
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const labels = Object.keys(data.rates).sort();
+                const values = labels.map(date => data.rates[date][target]);
+
+                if (chart) chart.destroy();
+
+                const ctx = document.getElementById("currencyChart").getContext("2d");
+                chart = new Chart(ctx, {
+                    type: "line",
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: `${base} to ${target}`,
+                            data: values,
+                            borderWidth: 2,
+                            borderColor: "#007BFF",
+                            backgroundColor: "rgba(0, 123, 255, 0.1)",
+                            tension: 0.3,
+                            fill: true
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        plugins: {
+                            legend: { position: 'top' },
+                            title: {
+                                display: true,
+                                text: `Exchange Rate: ${base} to ${target}`
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: false
+                            }
+                        }
+                    }
+                });
+            });
+    }
+
+    function clearForm() {
+        document.getElementById("baseCurrency").selectedIndex = 0;
+        document.getElementById("convertToCurrency").selectedIndex = 0;
+        document.getElementById("fromDate").value = "";
+        document.getElementById("toDate").value = "";
+
+        if (chart) {
+            chart.destroy();
+            chart = null;
+        }
+    }
+
+    document.getElementById("showResults").addEventListener("click", showResults);
+    document.getElementById("clear").addEventListener("click", clearForm);
+    document.addEventListener("DOMContentLoaded", populateCurrencies);
+    </script>
+</div>
 </div>
 
 <div id="SoftSkills" class="tabcontent">
