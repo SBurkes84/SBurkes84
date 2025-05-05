@@ -1,0 +1,16 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+}
+
+.alert {
+  background-color: #ffffcc;
+  color: #cc0000;
+  padding: 10px;
+  border-left: 5px solid #cc0000;
+}
+
+h2, h3, h4 {
+  font-family: 'Segoe UI', sans-serif;
+}
