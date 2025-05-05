@@ -1,16 +1,29 @@
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f0;
+.tab {
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
 }
 
-.alert {
-  background-color: #ffffcc;
-  color: #cc0000;
-  padding: 10px;
-  border-left: 5px solid #cc0000;
+.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    transition: 0.3s;
+    font-size: 17px;
 }
 
-h2, h3, h4 {
-  font-family: 'Segoe UI', sans-serif;
+.tab button:hover {
+    background-color: #ddd;
+}
+
+.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 20px;
+    border-top: none;
 }
