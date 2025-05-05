@@ -465,18 +465,33 @@
      </div>
     
     <script>
-        function openTab(tabName) {
-            document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
-            const target = document.getElementById(tabName);
-            if (target) {
-                target.style.display = "block";
-            } else {
-                console.warn("Tab not found:", tabName);
-            }
+    function openTab(tabName) {
+        // Hide all tabcontent
+        document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
+
+        // Remove 'active' class from all tablinks
+        document.querySelectorAll(".tablinks").forEach(btn => btn.classList.remove("active"));
+
+        // Show the selected tab
+        const target = document.getElementById(tabName);
+        if (target) {
+            target.style.display = "block";
+        } else {
+            console.warn("Tab not found:", tabName);
         }
-        document.addEventListener("DOMContentLoaded", function () {
-            openTab('Home');
-        });
-    </script>
+
+        // Mark the clicked tab as active
+        const clickedButton = document.querySelector(`[onclick="openTab('${tabName}')"]`);
+        if (clickedButton) {
+            clickedButton.classList.add("active");
+        }
+    }
+
+    // Set default tab on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        openTab('SoftSkills'); // You can change this to whichever tab you want to show first
+    });
+</script>
+
 </body>
 </html>
