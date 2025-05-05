@@ -32,7 +32,6 @@
     border-radius: 8px;
     color: #f8f8f8; 
     box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-    display: none;
     line-height: 1.6;
 }
         h1, h2 {
@@ -121,18 +120,18 @@
             <a onclick="openTab('Accomplishments')">Accomplishments</a>
             <a onclick="openTab('Contact')">Contact</a>
             <div class="dropdown">
-                <button class="dropbtn">Work Examples <i class="fa fa-caret-down"></i></button>
-                <div class="dropdown-content">
-                    <a onclick="openTab('Writing')">Writing</a>
-                    <a onclick="openTab('WebProjects')">Web Projects</a>
-                    <a onclick="openTab('Database')">Database</a>
-                    <a onclick="openTab('Programming')">Programming</a>
-                    <a onclick="openTab('SoftSkills')">Soft Skills</a>
-                    <a onclick="openTab('Capstone')">Capstone</a>
-                </div>
-            </div>
-        </div>
+        <button class="dropbtn">Work Examples <i class="fa fa-caret-down"></i></button>
+        <div class="dropdown-content">
+           <a onclick="openTab('Writing')">Writing</a>
+           <a onclick="openTab('WebProjects')">Web Projects</a>
+           <a onclick="openTab('Database')">Database</a>
+           <a onclick="openTab('Programming')">Programming</a>
+           <a onclick="openTab('SoftSkills')">Soft Skills</a>
+           <a onclick="openTab('Capstone')">Capstone</a>
+         </div>
+       </div>
     </div>
+</div>
 
     <!-- Tab Content Sections -->
     <div id="Home" class="tabcontent">
@@ -438,11 +437,7 @@
    </script>
   </div>
 
-    <div class="tab">
-     <button class="tablinks" onclick="openTab('SoftSkills')">Soft Skills</button>
-     <button class="tablinks" onclick="openTab('Capstone')">Capstone Project</button>
-   </div>
-     <div id="SoftSkills" class="tabcontent">
+   <div id="SoftSkills" class="tabcontent">
        <h2>Soft Skills</h2>
         
        <h3>Example 1: Problem Solving</h3>
@@ -469,33 +464,31 @@
      </div>
     
     <script>
-    function openTab(tabName) {
-        // Hide all tabcontent
-        document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
+function openTab(tabName) {
+    // Hide all tabcontent
+    document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
 
-        // Remove 'active' class from all tablinks
-        document.querySelectorAll(".tablinks").forEach(btn => btn.classList.remove("active"));
+    // Remove 'active' class from all tablinks
+    document.querySelectorAll(".tablinks").forEach(btn => btn.classList.remove("active"));
 
-        // Show the selected tab
-        const target = document.getElementById(tabName);
-        if (target) {
-            target.style.display = "block";
-        } else {
-            console.warn("Tab not found:", tabName);
-        }
-
-        // Mark the clicked tab as active
-        const clickedButton = document.querySelector(`[onclick="openTab('${tabName}')"]`);
-        if (clickedButton) {
-            clickedButton.classList.add("active");
-        }
+    // Show the selected tab
+    const target = document.getElementById(tabName);
+    if (target) {
+        target.style.display = "block";
+    } else {
+        console.warn("Tab not found:", tabName);
     }
 
-    // Set default tab on page load
-    document.addEventListener("DOMContentLoaded", function () {
-        openTab('SoftSkills'); // You can change this to whichever tab you want to show first
-    });
-</script>
+    // Mark the clicked tab as active
+    const clickedButton = document.querySelector(`[onclick="openTab('${tabName}')"]`);
+    if (clickedButton) {
+        clickedButton.classList.add("active");
+    }
+}
 
+document.addEventListener("DOMContentLoaded", function () {
+    openTab('SoftSkills'); // or any tab name
+});
+</script>
 </body>
 </html>
