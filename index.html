@@ -112,22 +112,22 @@
     <h1>Portfolio of Shequila Sledge</h1>
     <div class="topnav" id="myTopnav">
         <div class="nav-wrapper">
-            <a onclick="openTab('Home')">Profile</a>
-            <a onclick="openTab('Resume')">Resume</a>
-            <a onclick="openTab('CoverLetter')">Cover Letter</a>
-            <a onclick="openTab('Skills')">Skills</a>
-            <a onclick="openTab('Education')">Education</a>
-            <a onclick="openTab('Accomplishments')">Accomplishments</a>
-            <a onclick="openTab('Contact')">Contact</a>
+            <a class="tablinks" onclick="openTab('Home')">Profile</a>
+            <a class="tablinks" onclick="openTab('Resume')">Resume</a>
+            <a class="tablinks" onclick="openTab('CoverLetter')">Cover Letter</a>
+            <a class="tablinks" onclick="openTab('Skills')">Skills</a>
+            <a class="tablinks" onclick="openTab('Education')">Education</a>
+            <a class="tablinks" onclick="openTab('Accomplishments')">Accomplishments</a>
+            <a class="tablinks" onclick="openTab('Contact')">Contact</a>
             <div class="dropdown">
                 <button class="dropbtn">Work Examples <i class="fa fa-caret-down"></i></button>
                 <div class="dropdown-content">
-                    <a onclick="openTab('Writing')">Writing</a>
-                    <a onclick="openTab('WebProjects')">Web Projects</a>
-                    <a onclick="openTab('Database')">Database</a>
-                    <a onclick="openTab('Programming')">Programming</a>
-                    <a onclick="openTab('SoftSkills')">Soft Skills</a>
-                    <a onclick="openTab('Capstone')">Capstone</a>
+                    <a class="tablinks" onclick="openTab('Writing')">Writing</a>
+                    <a class="tablinks" onclick="openTab('WebProjects')">Web Projects</a>
+                    <a class="tablinks" onclick="openTab('Database')">Database</a>
+                    <a class="tablinks" onclick="openTab('Programming')">Programming</a>
+                    <a class="tablinks" onclick="openTab('SoftSkills')">Soft Skills</a>
+                    <a class="tablinks" onclick="openTab('Capstone')">Capstone</a>
                 </div>
             </div>
         </div>
@@ -463,28 +463,37 @@
        <li><a href="Project_Charter_Shequila_Sledge.docx" target="_blank">Project Charter</a></li>
        <li><a href="Project_Analysis_UV_Tracker.docx" target="_blank">System Analysis</a></li>
        <li><a href="Project_Design_UV_Tracker_with_Code.docx" target="_blank">System Design + Code</a></li>
-   </ul>
-</div>
-    
+    </ul>
+  </div>
+
+   </div>
    <script>
-    function openTab(tabName) {
-        document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
-        document.querySelectorAll(".topnav a").forEach(btn => btn.classList.remove("active-tab"));
-        const target = document.getElementById(tabName);
-        if (target) target.style.display = "block";
-        document.querySelectorAll(`[data-tab="${tabName}"]`).forEach(btn => btn.classList.add("active-tab"));
-    }
-
-    // Show first tab on load
-    window.onload = () => openTab('SoftSkills');
-</script>
-
-<style>
-    .active-tab {
-        background-color: #04AA6D !important;
-        font-weight: bold;
-    }
-</style>
-
+      // Click the default tab so that the profile is displayed
+      document.getElementById("defaultOpen").click();
+      
+      function myFunction() {
+         var x = document.getElementById("myTopnav");
+         if (x.className === "topnav") {
+            x.className += " responsive";
+         } else {
+            x.className = "topnav";
+         }
+      }
+      
+      function openTab(evt, cityName) {
+         var i, tabcontent, tablinks;
+         tabcontent = document.getElementsByClassName("tabcontent");
+         for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+         }
+         tablinks = document.getElementsByClassName("tablinks");
+         for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+         }
+         document.getElementById(cityName).style.display = "block";
+         evt.currentTarget.className += " active";
+      }
+   </script>
 </body>
 </html>
+
