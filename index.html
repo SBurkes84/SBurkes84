@@ -460,23 +460,37 @@
   </ul>
 </section>
 
- <!-- SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Simple Tab Handler
-    function showTab(id) {
-      document.querySelectorAll(".tabcontent").forEach((el) => el.classList.remove("active"));
-      const target = document.getElementById(id);
-      if (target) target.classList.add("active");
-    }
-
-    // Attach click events to all tab links
-    document.querySelectorAll(".tablink").forEach((link) => {
-      link.addEventListener("click", () => showTab(link.dataset.tab));
+<script>
+  function openTab(tabName) {
+    // Hide all tab contents
+    document.querySelectorAll(".tabcontent").forEach(tab => {
+      tab.style.display = "none";
     });
 
-    // Default tab
-    showTab("Home");
-  </script>
+    // Remove active class from all tab buttons
+    document.querySelectorAll(".tablinks").forEach(link => {
+      link.classList.remove("active");
+    });
+
+    // Show selected tab content
+    const selectedTab = document.getElementById(tabName);
+    if (selectedTab) {
+      selectedTab.style.display = "block";
+    }
+
+    // Highlight the clicked tab button
+    const activeLink = Array.from(document.querySelectorAll(".tablinks"))
+      .find(link => link.textContent.trim() === tabName || link.getAttribute("onclick")?.includes(tabName));
+    if (activeLink) {
+      activeLink.classList.add("active");
+    }
+  }
+
+  // Open default tab on page load
+  document.addEventListener("DOMContentLoaded", () => {
+    openTab("Home");
+  });
+</script>
+
 </body>
 </html>
