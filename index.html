@@ -425,9 +425,11 @@
     }
   }
 
+  document.addEventListener("DOMContentLoaded", function () {
+  populateCurrencies();
   document.getElementById("showResults").addEventListener("click", showResults);
   document.getElementById("clear").addEventListener("click", clearForm);
-  document.addEventListener("DOMContentLoaded", populateCurrencies);
+});
 </script>
 
 <section id="SoftSkills" class="tabcontent">
