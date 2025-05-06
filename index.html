@@ -120,7 +120,7 @@
             <a class="tablinks" onclick="openTab('Accomplishments')">Accomplishments</a>
             <a class="tablinks" onclick="openTab('Contact')">Contact</a>
             <div class="dropdown">
-                <button class="dropbtn">Work Examples <i class="fa fa-caret-down"></i></button>
+                <button class="dropbtn">Work Examples </span>
                 <div class="dropdown-content">
                     <a class="tablinks" onclick="openTab('Writing')">Writing</a>
                     <a class="tablinks" onclick="openTab('WebProjects')">Web Projects</a>
@@ -425,7 +425,7 @@
         document.getElementById("convertToCurrency").selectedIndex = 0;
         document.getElementById("fromDate").value = "";
         document.getElementById("toDate").value = "";
-
+</select> 
         if (chart) {
             chart.destroy();
             chart = null;
@@ -441,54 +441,39 @@
 <div id="SoftSkills" class="tabcontent">
     <h2>Soft Skills</h2>
     <h3>Example 1: Problem Solving</h3>
-    <p><strong>Title:</strong> Resolving Customer Disputes Effectively at Saracen Casino</p>
-    <p><strong>Overview:</strong> A guest was upset about a machine error. I remained calm, actively listened, followed protocol, and collaborated with a technician to resolve the issue within 15 minutes.</p>
-    <p><strong>Skills Demonstrated:</strong> Conflict resolution, Active listening, Professional communication, Composure under pressure, Customer service</p>
-
+    <p><strong>Title:</strong> Resolving Customer Disputes at Saracen Casino</p>
+    <p>Stayed calm, followed protocol, and resolved guest complaint in 15 minutes.</p>
     <h3>Example 2: Project Management</h3>
-    <p><strong>Title:</strong> Coordinating Team Responsibilities During a Holiday Rush at Saracen Casino</p>
-    <p><strong>Overview:</strong> During a busy holiday season, I created rotating schedules, cross-trained staff, and maintained strong communication with leadership to keep operations running smoothly.</p>
-    <p><strong>Skills Demonstrated:</strong> Time management, Staff coordination, Communication, Leadership under pressure, Adaptability</p>
-</div>
+    <p><strong>Title:</strong> Coordinated Staff During Holiday Rush</p>
+    <p>Managed rotating schedules and cross-trained staff to ensure smooth operations.</p>
+  </div>
 
-<div id="Capstone" class="tabcontent">
+  <div id="Capstone" class="tabcontent">
     <h2>Capstone Project</h2>
-    <p>Below are technical documents written and compiled for the UV Exposure & Weather Tracker project.</p>
+    <p>Project: UV Exposure & Weather Tracker</p>
     <ul>
-       <li><a href="Project_Charter_Shequila_Sledge.docx" target="_blank">Project Charter</a></li>
-       <li><a href="Project_Analysis_UV_Tracker.docx" target="_blank">System Analysis</a></li>
-       <li><a href="Project_Design_UV_Tracker_with_Code.docx" target="_blank">System Design + Code</a></li>
+      <li><a href="Project_Charter_Shequila_Sledge.docx" target="_blank">📄 Project Charter</a></li>
+      <li><a href="Project_Analysis_UV_Tracker.docx" target="_blank">📄 System Analysis</a></li>
+      <li><a href="Project_Design_UV_Tracker_with_Code.docx" target="_blank">📄 System Design & Code</a></li>
     </ul>
- </div>
+  </div>
 
- </div>
-   <script>
-      // Click the default tab so that the profile is displayed
-      document.getElementById("defaultOpen").click();
-      
-      function myFunction() {
-         var x = document.getElementById("myTopnav");
-         if (x.className === "topnav") {
-            x.className += " responsive";
-         } else {
-            x.className = "topnav";
-         }
+  <script>
+    function openTab(tabName) {
+      const tabcontent = document.getElementsByClassName("tabcontent");
+      for (let i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
       }
-      
-      function openTab(evt, cityName) {
-         var i, tabcontent, tablinks;
-         tabcontent = document.getElementsByClassName("tabcontent");
-         for (i = 0; i < tabcontent.length; i++) {
-            tabcontent[i].style.display = "none";
-         }
-         tablinks = document.getElementsByClassName("tablinks");
-         for (i = 0; i < tablinks.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" active", "");
-         }
-         document.getElementById(cityName).style.display = "block";
-         evt.currentTarget.className += " active";
+      const tablinks = document.getElementsByClassName("tablinks");
+      for (let i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
       }
+      const tab = document.getElementById(tabName);
+      if (tab) {
+        tab.style.display = "block";
+      }
+    }
+    document.addEventListener("DOMContentLoaded", () => openTab('Home'));
   </script>
- </body>
+</body>
 </html>
-
