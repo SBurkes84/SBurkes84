@@ -28,11 +28,11 @@
             width: 80%;
             margin: 30px auto;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.85); 
+            background-color: rgba(0, 0, 0, 0.65);
             border-radius: 8px;
-            color: #f8f8f8; 
-            box-shadow: 0px 4px 10px rgba(0,0,0,0.3);
-            line-height: 1.6;
+            color: #ffffff;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+            display: none;
         }
         h1, h2 {
             text-align: center;
@@ -105,33 +105,34 @@
                 font-size: 14px;
                 padding: 10px;
             }
-         }
+        }
     </style>
-  </head>
+</head>
 <body>
     <h1>Portfolio of Shequila Sledge</h1>
     <div class="topnav" id="myTopnav">
         <div class="nav-wrapper">
-            <a href="openTab('Home')">Profile</a>
-            <a href="openTab('Resume')">Resume</a>
-            <a href="openTab('CoverLetter')">Cover Letter</a>
-            <a href="openTab('Skills')">Skills</a>
-            <a href="openTab('Education')">Education</a>
-            <a href="openTab('Accomplishments')">Accomplishments</a>
-            <a href="openTab('Contact')">Contact</a>
+            <a onclick="openTab('Home')">Profile</a>
+            <a onclick="openTab('Resume')">Resume</a>
+            <a onclick="openTab('CoverLetter')">Cover Letter</a>
+            <a onclick="openTab('Skills')">Skills</a>
+            <a onclick="openTab('Education')">Education</a>
+            <a onclick="openTab('Accomplishments')">Accomplishments</a>
+            <a onclick="openTab('Contact')">Contact</a>
             <div class="dropdown">
-        <button class="dropbtn">Work Examples <i class="fa fa-caret-down"></i></button>
-        <div class="dropdown-content">
-           <a href="openTab('Writing')">Writing</a>
-           <a href="openTab('WebProjects')">Web Projects</a>
-           <a href="openTab('Database')">Database</a>
-           <a href="openTab('Programming')">Programming</a>
-           <a href="openTab('SoftSkills')">Soft Skills</a>
-           <a href="openTab('Capstone')">Capstone</a>
-         </div>
-       </div>
+                <button class="dropbtn">Work Examples <i class="fa fa-caret-down"></i></button>
+                <div class="dropdown-content">
+                    <a onclick="openTab('Writing')">Writing</a>
+                    <a onclick="openTab('WebProjects')">Web Projects</a>
+                    <a onclick="openTab('Database')">Database</a>
+                    <a onclick="openTab('Programming')">Programming</a>
+                    <a onclick="openTab('SoftSkills')">Soft Skills</a>
+                    <a onclick="openTab('Capstone')">Capstone</a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+
 
     <!-- Tab Content Sections -->
     <div id="Home" class="tabcontent">
@@ -465,37 +466,31 @@
     
    <script>
     function openTab(tabName) {
-        // Hide all tabcontent sections
-        document.querySelectorAll(".tabcontent").forEach(tab => {
-            tab.style.display = "none";
-        });
-
-        // Remove active class from all tablinks
-        document.querySelectorAll(".tablinks").forEach(btn => {
-            btn.classList.remove("active");
-        });
-
+        // Hide all tabs
+        document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
+        
+        // Remove active highlight from all buttons
+        document.querySelectorAll(".topnav a, .dropdown-content a").forEach(btn => btn.classList.remove("active-tab"));
+        
         // Show selected tab
-        const selectedTab = document.getElementById(tabName);
-        if (selectedTab) {
-            selectedTab.style.display = "block";
-        } else {
-            console.warn("Tab not found:", tabName);
+        const target = document.getElementById(tabName);
+        if (target) {
+            target.style.display = "block";
         }
 
-        // Highlight active tab if possible
-        const buttons = document.querySelectorAll('.tablinks');
-        buttons.forEach(btn => {
-            if (btn.textContent.trim() === tabName || btn.getAttribute('onclick')?.includes(tabName)) {
-                btn.classList.add("active");
-            }
-        });
+        // Highlight clicked link
+        const clickedLink = [...document.querySelectorAll(".topnav a, .dropdown-content a")]
+            .find(el => el.textContent.trim() === tabName.replace(/([A-Z])/g, ' $1').trim());
+        if (clickedLink) clickedLink.classList.add("active-tab");
     }
-
-    // Load default tab on first visit
-    document.addEventListener("DOMContentLoaded", () => {
-        openTab('Home');  // You can change this to any tab you want to show first
-    });
 </script>
+
+<style>
+    .active-tab {
+        background-color: #04AA6D !important;
+        font-weight: bold;
+    }
+</style>
+
 </body>
 </html>
