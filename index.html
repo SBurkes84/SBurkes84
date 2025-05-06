@@ -463,32 +463,39 @@
         </ul>
      </div>
     
-    <script>
-function openTab(tabName) {
-    // Hide all tabcontent
-    document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
+   <script>
+    function openTab(tabName) {
+        // Hide all tabcontent sections
+        document.querySelectorAll(".tabcontent").forEach(tab => {
+            tab.style.display = "none";
+        });
 
-    // Remove 'active' class from all tablinks
-    document.querySelectorAll(".tablinks").forEach(btn => btn.classList.remove("active"));
+        // Remove active class from all tablinks
+        document.querySelectorAll(".tablinks").forEach(btn => {
+            btn.classList.remove("active");
+        });
 
-    // Show the selected tab
-    const target = document.getElementById(tabName);
-    if (target) {
-        target.style.display = "block";
-    } else {
-        console.warn("Tab not found:", tabName);
+        // Show selected tab
+        const selectedTab = document.getElementById(tabName);
+        if (selectedTab) {
+            selectedTab.style.display = "block";
+        } else {
+            console.warn("Tab not found:", tabName);
+        }
+
+        // Highlight active tab if possible
+        const buttons = document.querySelectorAll('.tablinks');
+        buttons.forEach(btn => {
+            if (btn.textContent.trim() === tabName || btn.getAttribute('onclick')?.includes(tabName)) {
+                btn.classList.add("active");
+            }
+        });
     }
 
-    // Mark the clicked tab as active
-    const clickedButton = document.querySelector(`[onclick="openTab('${tabName}')"]`);
-    if (clickedButton) {
-        clickedButton.classList.add("active");
-    }
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    openTab('SoftSkills'); // or any tab name
-});
+    // Load default tab on first visit
+    document.addEventListener("DOMContentLoaded", () => {
+        openTab('Home');  // You can change this to any tab you want to show first
+    });
 </script>
 </body>
 </html>
