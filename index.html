@@ -438,51 +438,45 @@
    </script>
   </div>
 
-   <div id="SoftSkills" class="tabcontent">
-       <h2>Soft Skills</h2>
-        
-       <h3>Example 1: Problem Solving</h3>
-       <p><strong>Title:</strong> Resolving Customer Disputes Effectively at Saracen Casino</p>
-       <p><strong>Overview:</strong> A guest was upset about a machine error. I remained calm, actively listened, followed protocol, and collaborated with a technician to resolve the issue within 15 minutes.</p>
-       <p><strong>Skills Demonstrated:</strong> Conflict resolution, Active listening, Professional communication, Composure under pressure, Customer service</p>
+   <div class="topnav">
+    <a data-tab="SoftSkills" onclick="openTab(this.getAttribute('data-tab'))">Soft Skills</a>
+    <a data-tab="Capstone" onclick="openTab(this.getAttribute('data-tab'))">Capstone</a>
+</div>
 
-       <h3>Example 2: Project Management</h3>
-       <p><strong>Title:</strong> Coordinating Team Responsibilities During a Holiday Rush at Saracen Casino</p>
-       <p><strong>Overview:</strong> During a busy holiday season, I created rotating schedules, cross-trained staff, and maintained strong communication with leadership to keep operations running smoothly.</p>
-       <p><strong>Skills Demonstrated:</strong> Time management, Staff coordination, Communication, Leadership under pressure, Adaptability</p>
-    </div>
+<div id="SoftSkills" class="tabcontent">
+    <h2>Soft Skills</h2>
+    <h3>Example 1: Problem Solving</h3>
+    <p><strong>Title:</strong> Resolving Customer Disputes Effectively at Saracen Casino</p>
+    <p><strong>Overview:</strong> A guest was upset about a machine error. I remained calm, actively listened, followed protocol, and collaborated with a technician to resolve the issue within 15 minutes.</p>
+    <p><strong>Skills Demonstrated:</strong> Conflict resolution, Active listening, Professional communication, Composure under pressure, Customer service</p>
 
-      <div id="Capstone" class="tabcontent">
-        <h2>Capstone Project</h2>
-        
-        <p>Below are technical documents written and compiled for the UV Exposure & Weather Tracker project.</p>
-        
-        <ul>
-         <li><a href="Project_Charter_Shequila_Sledge.docx" target="_blank">Project Charter</a></li>
-         <li><a href="Project_Analysis_UV_Tracker.docx" target="_blank">System Analysis</a></li>
-         <li><a href="Project_Design_UV_Tracker_with_Code.docx" target="_blank">System Design + Code</a></li>
-        </ul>
-     </div>
+    <h3>Example 2: Project Management</h3>
+    <p><strong>Title:</strong> Coordinating Team Responsibilities During a Holiday Rush at Saracen Casino</p>
+    <p><strong>Overview:</strong> During a busy holiday season, I created rotating schedules, cross-trained staff, and maintained strong communication with leadership to keep operations running smoothly.</p>
+    <p><strong>Skills Demonstrated:</strong> Time management, Staff coordination, Communication, Leadership under pressure, Adaptability</p>
+</div>
+
+<div id="Capstone" class="tabcontent">
+    <h2>Capstone Project</h2>
+    <p>Below are technical documents written and compiled for the UV Exposure & Weather Tracker project.</p>
+    <ul>
+       <li><a href="Project_Charter_Shequila_Sledge.docx" target="_blank">Project Charter</a></li>
+       <li><a href="Project_Analysis_UV_Tracker.docx" target="_blank">System Analysis</a></li>
+       <li><a href="Project_Design_UV_Tracker_with_Code.docx" target="_blank">System Design + Code</a></li>
+   </ul>
+</div>
     
    <script>
     function openTab(tabName) {
-        // Hide all tabs
         document.querySelectorAll(".tabcontent").forEach(tab => tab.style.display = "none");
-        
-        // Remove active highlight from all buttons
-        document.querySelectorAll(".topnav a, .dropdown-content a").forEach(btn => btn.classList.remove("active-tab"));
-        
-        // Show selected tab
+        document.querySelectorAll(".topnav a").forEach(btn => btn.classList.remove("active-tab"));
         const target = document.getElementById(tabName);
-        if (target) {
-            target.style.display = "block";
-        }
-
-        // Highlight clicked link
-        const clickedLink = [...document.querySelectorAll(".topnav a, .dropdown-content a")]
-            .find(el => el.textContent.trim() === tabName.replace(/([A-Z])/g, ' $1').trim());
-        if (clickedLink) clickedLink.classList.add("active-tab");
+        if (target) target.style.display = "block";
+        document.querySelectorAll(`[data-tab="${tabName}"]`).forEach(btn => btn.classList.add("active-tab"));
     }
+
+    // Show first tab on load
+    window.onload = () => openTab('SoftSkills');
 </script>
 
 <style>
