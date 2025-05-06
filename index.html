@@ -457,22 +457,26 @@
     </ul>
        
 <script>
-    function openTab(tabName) {
-      const tabcontent = document.getElementsByClassName("tabcontent");
-      for (let i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-      const tablinks = document.getElementsByClassName("tablinks");
-      for (let i = 0; i < tablinks.length; i++) {
-        tablinks[i].classList.remove("active");
-      }
-      const tab = document.getElementById(tabName);
-      if (tab) {
-        tab.style.display = "block";
-      }
+  function openTab(tabName) {
+    const tabcontent = document.getElementsByClassName("tabcontent");
+    for (let i = 0; i < tabcontent.length; i++) {
+      tabcontent[i].style.display = "none";
     }
-    document.addEventListener("DOMContentLoaded", () => openTab('Home'));
-   </script>
-            
+
+    const tablinks = document.getElementsByClassName("tablinks");
+    for (let i = 0; i < tablinks.length; i++) {
+      tablinks[i].classList.remove("active");
+    }
+
+    const tab = document.getElementById(tabName);
+    if (tab) {
+      tab.style.display = "block";
+    }
+  }
+
+  // Make sure this runs when the page loads
+  document.addEventListener("DOMContentLoaded", () => openTab('Home'));
+</script>
+
 </body>
 </html>
